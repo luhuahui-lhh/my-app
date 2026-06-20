@@ -7,14 +7,14 @@ export default function Home() {
           <span className="font-semibold text-lg">华霖装饰纸</span>
           <div className="flex gap-4 sm:gap-8 text-sm text-gray-600">
             <a href="#about" className="hover:text-black transition-colors">关于</a>
-            <a href="#projects" className="hover:text-black transition-colors">项目</a>
-            <a href="#blog" className="hover:text-black transition-colors">文章</a>
+            <a href="#projects" className="hover:text-black transition-colors">简介</a>
+            <a href="#blog" className="hover:text-black transition-colors">动态</a>
             <a href="#contact" className="hover:text-black transition-colors">联系</a>
           </div>
         </div>
       </nav>
 
-      {/* 个人介绍 - 修复文本换行、全角字符，增加锚点偏移 */}
+      {/* 介绍 - 修复文本换行、全角字符，增加锚点偏移 */}
       <section id="about" className="max-w-4xl mx-auto px-6 pt-36 pb-24 scroll-mt-20">
         <p className="text-gray-400 mb-3">你好，我是</p>
         <h1 className="text-5xl font-bold mb-6"> HUALIN</h1>
@@ -76,20 +76,20 @@ export default function Home() {
             { 
               id: "blog1",
               title: "装饰纸行业发展趋势", 
-              date: "2024年6月", 
+              date: "2026年6月", 
               desc: "解析2024年装饰纸行业的技术革新与市场需求变化。" 
             },
             { 
               id: "blog2",
               title: "华霖新品研发纪实", 
-              date: "2024年5月", 
-              desc: "华霖新款高端装饰纸的研发过程与工艺升级。" 
+              date: "2026年5月", 
+              desc: "高端装饰纸的研发过程与工艺升级。" 
             },
             { 
               id: "blog3",
               title: "环保装饰纸的应用前景", 
-              date: "2024年4月", 
-              desc: "环保政策下，绿色装饰纸的市场机遇与技术突破。" 
+              date: "2026年4月", 
+              desc: "环保政策下，装饰纸的市场机遇与技术突破。" 
             },
           ].map((post) => (
             <div key={post.id} className="py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
