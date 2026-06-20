@@ -17,20 +17,20 @@ export default function Home() {
       {/* 个人介绍 - 修复文本换行、全角字符，增加锚点偏移 */}
       <section id="about" className="max-w-4xl mx-auto px-6 pt-36 pb-24 scroll-mt-20">
         <p className="text-gray-400 mb-3">你好，我是</p>
-        <h1 className="text-5xl font-bold mb-6">HUANGZHOU HUALIN</h1>
+        <h1 className="text-5xl font-bold mb-6"> HUALIN</h1>
         <p className="text-xl text-gray-500 max-w-xl leading-relaxed">
           杭州华霖装饰纸有限公司成立于2010年，位于中国装饰纸之都——临安。全资控股子公司安徽华霖新材料科技有限公司成立于2021年，位于安徽省宁国市港口生态产业园，占地面积35000平方米。公司地理位置优越，交通运输便利。
         </p>
         <div className="mt-8 flex gap-4">
           <a href="#contact" className="px-6 py-3 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors">联系我</a>
-          <a href="#projects" className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:border-gray-500 transition-colors">查看项目</a>
+          <a href="#projects" className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:border-gray-500 transition-colors">企业简介</a>
         </div>
       </section>
 
       {/* 项目 - 修复字符串换行、tag匹配、全角字符，替换key为唯一标识 */}
       <section id="projects" className="bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 py-24">
-          <h2 className="text-2xl font-bold mb-10">项目</h2>
+          <h2 className="text-2xl font-bold mb-10">企业简介</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { 
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="flex justify-center gap-4">
             <a href="mailto:hualin201005@gmail.com" className="px-6 py-3 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors">发邮件</a>
             <a 
-              href="https://www.hualin.com" 
+              href="https://www.hlzsz.com" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:border-gray-500 transition-colors"
