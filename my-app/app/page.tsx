@@ -182,18 +182,19 @@ export default function Home() {
   <FadeIn>
     <h2 className="text-2xl font-bold mb-10">文章</h2>
   </FadeIn>
-  <div className="divide-y divide-gray-100">
-    {[
-      { 
-  title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
-  date: "2026年6月", 
-  desc: "罗伯特议事规则与群体决策的理性设计。",
-  path: "/blog" // 保持这样，完全正确！
-}
+  <div className="divide-y divide-gray-          
+{[
+            { 
+              title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
+              date: "2026年6月", 
+              desc: "罗伯特议事规则与群体决策的理性设计。",
+              path: "/blog"
+            }, // 👈 注意：这里必须是一个闭合的括号加一个英文逗号
+            { 
+              title: "理性的严谨与感性的温度", 
+              date: "2026年6月", 
+// ... 下面保持不变
 
-      { 
-        title: "理性的严谨与感性的温度", 
-        date: "2026年6月", 
         desc: "全面拆解工科思维与文科思维的认知框架、碰撞交融与跨界实践方案。",
         path: "/blog/rational-and-perceptual" 
       },
