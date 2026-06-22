@@ -81,7 +81,7 @@ const projects = [
   },
 ]
 
-const tags = ["全部", "Next.js", "Python", "AI", "设计"]
+const tags = ["全部", "Next", "Python", "AI", "设计"]
 
 export default function Home() {
   const [activeTag, setActiveTag] = useState("全部")
@@ -186,7 +186,7 @@ export default function Home() {
         <div className="divide-y divide-gray-100">
           {[
             { 
-              title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
+              title: "罗伯特议事规则与群体决策的理性设计", 
               date: "2026年6月", 
               desc: "罗伯特议事规则与群体决策的理性设计。",
               path: "/blog" // 💡 完美契合你在 blog 下直建 page.tsx 的约定
@@ -198,9 +198,9 @@ export default function Home() {
               path: "/blog/rational-and-perceptual" 
             },
             { 
-              title: "文章标题一", 
+              title: "文章标题", 
               date: "2025年6月", 
-              desc: "一两句话说明这篇文章讲了什么。",
+              desc: "一两句话",
               path: "#" 
             }
           ].map((post, i) => (
