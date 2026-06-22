@@ -177,46 +177,46 @@ export default function Home() {
         </div>
       </section>
 
-        {/* 文章 */}
-      <section id="blog" className="max-w-5xl mx-auto px-6 py-24">
-        <FadeIn>
-          <h2 className="text-2xl font-bold mb-10">文章</h2>
-        </FadeIn>
-        <div className="divide-y divide-gray-100">
-          {[
-            { 
-              title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
-              date: "2026年6月", 
-              desc: "罗伯特议事规则与群体决策的理性设计。",
-              path: "/blog" 
-            },
-            { 
-              title: "理性的严谨与感性的温度", 
-              date: "2026年6月", 
-              desc: "全面拆解工科思维与文科思维的认知框架、碰撞交融与跨界实践方案。",
-              path: "/blog/rational-and-perceptual" 
-            },
-            { 
-              title: "文章标题一", 
-              date: "2025年6月", 
-              desc: "一两句话说明这篇文章讲了什么。",
-              path: "#" 
-            },
-          ].map((post, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <Link href={post.path} className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="font-semibold mb-1 text-gray-900">{post.title}</h3>
-                    <p className="text-gray-400 text-sm">{post.desc}</p>
-                  </div>
-                  <span className="text-gray-300 text-sm ml-8 shrink-0">{post.date}</span>
-                </div>
-              </Link>
-            </FadeIn>
-          ))}
-        </div>
-      </section>
+  {/* 文章 */}
+<section id="blog" className="max-w-5xl mx-auto px-6 py-24">
+  <FadeIn>
+    <h2 className="text-2xl font-bold mb-10">文章</h2>
+  </FadeIn>
+  <div className="divide-y divide-gray-100">
+    {[
+      { 
+        title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
+        date: "2026年6月", 
+        desc: "罗伯特议事规则与群体决策的理性设计。",
+        path: "/blog/roberts-rules" // 💡 修正这里：指向对应的文章路径
+      },
+      { 
+        title: "理性的严谨与感性的温度", 
+        date: "2026年6月", 
+        desc: "全面拆解工科思维与文科思维的认知框架、碰撞交融与跨界实践方案。",
+        path: "/blog/rational-and-perceptual" 
+      },
+      { 
+        title: "文章标题一", 
+        date: "2025年6月", 
+        desc: "一两句话说明这篇文章讲了什么。",
+        path: "#" 
+      },
+    ].map((post, i) => (
+      <FadeIn key={i} delay={i * 100}>
+        <Link href={post.path} className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="font-semibold mb-1 text-gray-900">{post.title}</h3>
+              <p className="text-gray-400 text-sm">{post.desc}</p>
+            </div>
+            <span className="text-gray-300 text-sm ml-8 shrink-0">{post.date}</span>
+          </div>
+        </Link>
+      </FadeIn>
+    ))}
+  </div>
+</section>
 
 
       {/* 联系 */}
