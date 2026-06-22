@@ -185,11 +185,12 @@ export default function Home() {
   <div className="divide-y divide-gray-100">
     {[
       { 
-        title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
-        date: "2026年6月", 
-        desc: "罗伯特议事规则与群体决策的理性设计。",
-        path: "/blog/roberts-rules" // 💡 修正这里：指向对应的文章路径
-      },
+  title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
+  date: "2026年6月", 
+  desc: "罗伯特议事规则与群体决策的理性设计。",
+  path: "/blog" // 保持这样，完全正确！
+}
+
       { 
         title: "理性的严谨与感性的温度", 
         date: "2026年6月", 
