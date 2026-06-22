@@ -177,13 +177,19 @@ export default function Home() {
         </div>
       </section>
 
-   {/* 文章 */}
+        {/* 文章 */}
       <section id="blog" className="max-w-5xl mx-auto px-6 py-24">
         <FadeIn>
           <h2 className="text-2xl font-bold mb-10">文章</h2>
         </FadeIn>
         <div className="divide-y divide-gray-100">
           {[
+            { 
+              title: "议事的算法：罗伯特议事规则与群体决策的理性设计", 
+              date: "2026年6月", 
+              desc: "罗伯特议事规则与群体决策的理性设计。",
+              path: "/blog" 
+            },
             { 
               title: "理性的严谨与感性的温度", 
               date: "2026年6月", 
@@ -196,28 +202,23 @@ export default function Home() {
               desc: "一两句话说明这篇文章讲了什么。",
               path: "#" 
             },
-            { 
-              title: "文章标题二", 
-              date: "2025年5月", 
-              desc: "一两句话说明这篇文章讲了什么。",
-              path: "#" 
-            },
           ].map((post, i) => (
             <FadeIn key={i} delay={i * 100}>
-              {/* 将外层包装为 Link 标签实现跳转 */}
-              <a href={post.path} className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
+              <Link href={post.path} className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="font-semibold mb-1 text-gray-900 group-hover:text-black">{post.title}</h3>
+                    <h3 className="font-semibold mb-1 text-gray-900">{post.title}</h3>
                     <p className="text-gray-400 text-sm">{post.desc}</p>
                   </div>
                   <span className="text-gray-300 text-sm ml-8 shrink-0">{post.date}</span>
                 </div>
-              </a>
+              </Link>
             </FadeIn>
           ))}
         </div>
       </section>
+
+
       {/* 联系 */}
       <section id="contact" className="bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 py-24 text-center">
