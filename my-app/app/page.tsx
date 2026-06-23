@@ -108,7 +108,7 @@ export default function Home() {
           <FadeIn>
             <div className="text-sm text-gray-400 mb-3">2026年6月 · 社会政治学 / 组织设计</div>
             <h1 className="text-4xl font-bold mb-4 leading-tight text-gray-900">
-              议事的算法：罗伯特议事规则与群体决策的理性设计
+              罗伯特议事规则与群体决策的理性设计
             </h1>
             <p className="text-xl text-gray-500 mb-12 leading-relaxed font-light">
               如何用工科的精密规则，保护文科的自由与人权？拆解文字构建的“群体协作操作系统”。
