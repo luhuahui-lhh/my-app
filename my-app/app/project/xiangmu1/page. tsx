@@ -1,0 +1,145 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
+type Cell = {
+  x: number
+  y: number
+  isMine: boolean
+  isRevealed: boolean
+  isFlagged: boolean
+  count: number
+}
+
+export default function Minesweeper() {
+  const size = 9
+  const mineCount = 10
+  const [board, setBoard] = useState<Cell[][]>([])
+  const [gameOver, setGameOver] = useState(false)
+  const [win, setWin] = useState(false)
+
+  const initBoard = () => {
+    let newBoard: Cell[][] = Array(size).fill(null).map((_, y) =>
+      Array(size).fill(null).map((_, x) => ({
+        x, y, isMine: false, isRevealed: false, isFlagged: false, count: 0
+      }))
+    )
+
+    // 随机埋雷
+    let planted = 0
+    while (planted < mineCount) {
+      const rx = Math.floor(Math.random() * size)
+      const ry = Math.floor(Math.random() * size)
+      if (!newBoard[ry][rx].isMine) {
+        newBoard[ry][rx].isMine = true
+        planted++
+      }
+    }
+
+    // 计算周围雷数
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        if (newBoard[y][x].isMine) continue
+        let count = 0
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            if (newBoard[y + dy]?.[x + dx]?.isMine) count++
+          }
+        }
+        newBoard[y][x].count = count
+      }
+    }
+
+    setBoard(newBoard)
+    setGameOver(false)
+    setWin(false)
+  }
+
+  useEffect(() => { initBoard() }, [])
+
+  const revealCell = (x: number, y: number) => {
+    if (gameOver || win || board[y][x].isRevealed || board[y][x].isFlagged) return
+    const newBoard = [...board.map(row => [...row])]
+    
+    if (newBoard[y][x].isMine) {
+      setGameOver(true)
+      newBoard.forEach(row => row.forEach(c => { if (c.isMine) c.isRevealed = true }))
+      setBoard(newBoard)
+      return
+    }
+
+    const floodFill = (cx: number, cy: number) => {
+      if (cx < 0 || cx >= size || cy < 0 || cy >= size || newBoard[cy][cx].isRevealed) return
+      newBoard[cy][cx].isRevealed = true
+      if (newBoard[cy][cx].count === 0 && !newBoard[cy][cx].isMine) {
+        for (let dy = -1; dy <= 1; dy++) {
+          for (let dx = -1; dx <= 1; dx++) {
+            floodFill(cx + dx, cy + dy)
+          }
+        }
+      }
+    }
+
+    floodFill(x, y)
+    setBoard(newBoard)
+
+    // 检查胜利
+    const hasWon = newBoard.every(row => row.every(c => c.isMine || c.isRevealed))
+    if (hasWon) setWin(true)
+  }
+
+  const toggleFlag = (e: React.MouseEvent, x: number, y: number) => {
+    e.preventDefault()
+    if (gameOver || win || board[y][x].isRevealed) return
+    const newBoard = [...board.map(row => [...row])]
+    newBoard[y][x].isFlagged = !newBoard[y][x].isFlagged
+    setBoard(newBoard)
+  }
+
+  return (
+    <main className="min-h-screen bg-white text-gray-950 flex flex-col items-center pt-24 px-6">
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
+        <div className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">← 返回主页</Link>
+          <span className="font-semibold text-sm">MINESWEEPER</span>
+        </div>
+      </nav>
+
+      <div className="max-w-md w-full text-center space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">高级感扫雷</h1>
+          <p className="text-gray-400 text-sm mt-1">左键挖开，右键长按插旗。目标找出 10 颗雷。</p>
+        </div>
+
+        <div className="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-xl border border-gray-100">
+          <span className="text-sm font-medium text-gray-600">
+            {gameOver ? '💥 踩雷失败！' : win ? '🎉 恭喜通关！' : '🕹️ 游戏中...'}
+          </span>
+          <button onClick={initBoard} className="px-3 py-1 bg-black text-white text-xs rounded-full hover:bg-gray-800 transition-colors">
+            重新开始
+          </button>
+        </div>
+
+        <div className="grid grid-cols-9 gap-1 p-2 bg-gray-50 border border-gray-100 rounded-2xl aspect-square">
+          {board.map((row, y) => row.map((cell, x) => (
+            <button
+              key={`${x}-${y}`}
+              onClick={() => revealCell(x, y)}
+              onContextMenu={(e) => toggleFlag(e, x, y)}
+              className={`w-full aspect-square text-xs font-bold rounded-md flex items-center justify-center transition-all duration-150 border select-none ${
+                cell.isRevealed
+                  ? cell.isMine ? 'bg-red-500 text-white border-red-500' : 'bg-white border-gray-200 text-gray-800 shadow-sm'
+                  : 'bg-gray-200 hover:bg-gray-300 border-gray-300 shadow-inner'
+              }`}
+            >
+              {cell.isRevealed 
+                ? (cell.isMine ? '💣' : cell.count > 0 ? cell.count : '')
+                : cell.isFlagged ? '🚩' : ''}
+            </button>
+          )))}
+        </div>
+      </div>
+    </main>
+  )
+}
