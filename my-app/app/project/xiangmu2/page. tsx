@@ -1,0 +1,95 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+
+export default function Sudoku() {
+  const [grid, setGrid] = useState<number[][]>(Array(9).fill(null).map(() => Array(9).fill(0)))
+  const [initial, setInitial] = useState<boolean[][]>(Array(9).fill(null).map(() => Array(9).fill(false)))
+  const [selected, setSelected] = useState<[number, number] | null>(null)
+
+  const puzzle = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+  ]
+
+  const initGame = () => {
+    setGrid(puzzle.map(row => [...row]))
+    setInitial(puzzle.map(row => row.map(val => val !== 0)))
+    setSelected(null)
+  }
+
+  useEffect(() => { initGame() }, [])
+
+  const handleInput = (num: number) => {
+    if (!selected) return
+    const [r, c] = selected
+    if (initial[r][c]) return // 初始密码格不允许修改
+
+    const newGrid = [...grid.map(row => [...row])]
+    newGrid[r][c] = num === newGrid[r][c] ? 0 : num // 点击相同数字则清空
+    setGrid(newGrid)
+  }
+
+  return (
+    <main className="min-h-screen bg-white text-gray-950 flex flex-col items-center pt-24 px-6">
+      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
+        <div className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
+          <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">← 返回主页</Link>
+          <span className="font-semibold text-sm">SUDOKU</span>
+        </div>
+      </nav>
+
+      <div className="max-w-md w-full text-center space-y-6">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">禅意数独</h1>
+          <p className="text-gray-400 text-sm mt-1">点击格子选中，再点击下方数字填入。</p>
+        </div>
+
+        {/* 9x9 网格 */}
+        <div className="grid grid-cols-9 gap-px bg-gray-300 p-1 rounded-2xl border border-gray-200 shadow-md overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+          {grid.map((row, r) => row.map((val, c) => {
+            const isSel = selected && selected[0] === r && selected[1] === c
+            const isInit = initial[r][c]
+            
+            // 计算九宫格粗黑线分界
+            const borderBottom = (r === 2 || r === 5) ? 'border-b-2 border-b-gray-400' : ''
+            const borderRight = (c === 2 || c === 5) ? 'border-r-2 border-r-gray-400' : ''
+
+            return (
+              <button
+                key={`${r}-${c}`}
+                onClick={() => setSelected([r, c])}
+                className={`w-full aspect-square text-base font-medium flex items-center justify-center transition-colors bg-white select-none ${borderBottom} ${borderRight} ${
+                  isSel ? 'bg-black text-white' : isInit ? 'text-gray-950 font-bold bg-gray-50' : 'text-blue-600'
+                }`}
+              >
+                {val !== 0 ? val : ''}
+              </button>
+            )
+          }))}
+        </div>
+
+        {/* 数字输入面板 */}
+        <div className="grid grid-cols-5 gap-2 bg-gray-50 p-3 rounded-2xl border border-gray-100">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(num => (
+            <button
+              key={num}
+              onClick={() => handleInput(num)}
+              className="py-2.5 bg-white border border-gray-200 rounded-xl font-bold text-sm text-gray-700 hover:border-black active:bg-gray-100 transition-colors shadow-sm"
+            >
+              {num === 0 ? '清除' : num}
+            </button>
+          ))}
+        </div>
+      </div>
+    </main>
+  )
+}
