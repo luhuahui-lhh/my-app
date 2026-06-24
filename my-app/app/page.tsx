@@ -37,6 +37,31 @@ function FadeIn({ children, delay = 0 }: { children: ReactNode; delay?: number }
 
 export default function Home() {
   const [showArticle, setShowArticle] = useState(false)
+  
+  // 💡 留言区所需的状态管理
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  // 💡 处理留言提交函数
+  const handleMessageSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name || !message) return
+
+    // 动作 1：拉起用户的本地邮箱，自动填写好主题和留言内容
+    const mailtoUrl = `mailto:luhuahui@gmail.com?subject=来自网站访客 ${name} 的留言&body=姓名: ${name}%0D%0A邮箱: ${email}%0D%0A%0D%0A留言内容:%0D%0A${message}`
+    window.location.href = mailtoUrl
+
+    // 动作 2：原地展示优雅的“提交成功”状态提示
+    setIsSubmitted(true)
+    setTimeout(() => {
+      setName('')
+      setEmail('')
+      setMessage('')
+      setIsSubmitted(false)
+    }, 5000) // 5秒后恢复空表单
+  }
 
   // 罗伯特议事规则文章原地渲染
   if (showArticle) {
@@ -89,14 +114,14 @@ export default function Home() {
       <section id="about" className="max-w-5xl mx-auto px-6 pt-36 pb-12">
         <FadeIn>
           <p className="text-gray-400 mb-3">你好，我是</p>
-          <h1 className="text-5xl font-bold mb-5">HUAHUI</h1>
+          <h1 className="text-5xl font-bold mb-6">HUAHUI</h1>
           <p className="text-xl text-gray-500 max-w-xl leading-relaxed">
             关注 AI × 设计 × 人文的探索者，在数字与现实之间寻找意义。
           </p>
         </FadeIn>
       </section>
 
-      {/* ✍️ 1、文章展示区（已移至上方，保留全部 4 篇文章） */}
+      {/* 文章展示区 */}
       <section id="blog" className="max-w-5xl mx-auto px-6 py-16">
         <FadeIn>
           <h2 className="text-2xl font-bold mb-10">文章</h2>
@@ -158,7 +183,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🕹️ 2、独立项目区域（已移至下方，路径修正为 xingmu1 和 xingmu2） */}
+      {/* 独立项目区域 */}
       <section id="projects" className="bg-gray-50 border-t border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 py-24">
           <FadeIn>
@@ -166,7 +191,6 @@ export default function Home() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            {/* 项目一 */}
             <FadeIn delay={0}>
               <Link href="/project/xiangmu1" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
                 <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">React / 算法</span>
@@ -175,31 +199,5 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* 项目二 */}
             <FadeIn delay={100}>
-              <Link href="/project/xiangmu2" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
-                <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">矩阵 / 逻辑设计</span>
-                <h3 className="font-semibold text-xl mt-4 mb-2 group-hover:text-gray-600 transition-colors">禅意九宫格数独 →</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">高阶二维矩阵逻辑验证的交互式数独，提供清爽沉浸的数理推演体验。</p>
-              </Link>
-            </FadeIn>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 联系 */}
-      <section id="contact">
-        <div className="max-w-5xl mx-auto px-6 py-24 text-center">
-          <FadeIn>
-            <h2 className="text-2xl font-bold mb-4">联系我</h2>
-            <div className="flex justify-center gap-4 mt-8">
-              <a href="mailto:luhuahui@gmail.com" className="px-6 py-3 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors">发邮件</a>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-      <footer className="text-center py-8 text-gray-300 text-sm">© 2025 HUAHUI</footer>
-    </main>
-  )
-}
+              <Link href="/project/xiangmu2" className="group block bg-white rounded-2xl overflow-hidden hover:
