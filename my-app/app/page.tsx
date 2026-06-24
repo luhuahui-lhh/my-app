@@ -36,60 +36,8 @@ function FadeIn({ children, delay = 0 }: { children: ReactNode; delay?: number }
   )
 }
 
-const projects = [
-  {
-    title: "项目名称一",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "Next.js",
-    img: "https://picsum.photos/seed/proj1/600/400",
-    link: "#",
-  },
-  {
-    title: "项目名称二",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "Python",
-    img: "https://picsum.photos/seed/proj2/600/400",
-    link: "#",
-  },
-  {
-    title: "项目名称三",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "AI",
-    img: "https://picsum.photos/seed/proj3/600/400",
-    link: "#",
-  },
-  {
-    title: "项目名称四",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "设计",
-    img: "https://picsum.photos/seed/proj4/600/400",
-    link: "#",
-  },
-  {
-    title: "项目名称五",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "Next.js",
-    img: "https://picsum.photos/seed/proj5/600/400",
-    link: "#",
-  },
-  {
-    title: "项目名称六",
-    desc: "简单描述这个项目做了什么，解决了什么问题。",
-    tag: "设计",
-    img: "https://picsum.photos/seed/proj6/600/400",
-    link: "#",
-  },
-]
-
-const tags = ["全部", "Next.js", "Python", "AI", "设计"]
-
 export default function Home() {
-  const [activeTag, setActiveTag] = useState("全部")
   const [showArticle, setShowArticle] = useState(false)
-
-  const filtered = activeTag === "全部"
-    ? projects
-    : projects.filter(p => p.tag === activeTag)
 
   // 当用户点击罗伯特议事规则文章时，直接原地渲染全文组件（防404）
   if (showArticle) {
@@ -136,25 +84,25 @@ export default function Home() {
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="font-bold text-gray-900 mb-2">① 多数人原则与少数人保护</h3>
                     <p className="text-sm text-gray-600">
-                      虽然最终决策听从多数人，但必须在充分听取少数人意见的前提下进行。剥夺少数人的发言权，等同于破坏了多数人决策的合法性。
+                      Although the majority rules, the minority must be protected. 虽听从多数，但必须在充分听取少数意见的前提下进行。
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="font-bold text-gray-900 mb-2">② 一时一件（One thing at a time）</h3>
                     <p className="text-sm text-gray-600">
-                      在任意给定时间内，会议只能审议和辩论一个动议。这类似于计算机系统中的“单线程”处理，防止思绪发散，确保闭环。
+                      在任意给定时间内，会议只能审议和辩论一个动议。类似于计算机的“单线程”处理，防止讨论发散。
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="font-bold text-gray-900 mb-2">③ 对事不对人</h3>
                     <p className="text-sm text-gray-600">
-                      辩论的目标是动议的可行性与价值，严禁攻击发言者的动机或人品。所有发言面向主持人，切断个体间直接的情绪冲突。
+                      辩论的目标是动议的可行性与价值，严禁攻击发言者的动机或人品。所有发言面向主持人，切断情绪冲突。
                     </p>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-2xl">
                     <h3 className="font-bold text-gray-900 mb-2">④ 充分辩论权</h3>
                     <p className="text-sm text-gray-600">
-                      任何人不能垄断发言。在所有人都有机会发表第一次意见之前，任何人都不能发表第二次意见。确保内向者的声音被听见。
+                      任何人不能垄断发言。在所有人都有机会发表第一次意见之前，任何人都不能发表第二次意见。
                     </p>
                   </div>
                 </div>
@@ -239,7 +187,6 @@ export default function Home() {
           <span className="font-semibold text-lg">HUAHUI</span>
           <div className="flex gap-8 text-sm text-gray-600">
             <a href="#about" className="hover:text-black transition-colors">关于</a>
-            <a href="#projects" className="hover:text-black transition-colors">项目</a>
             <a href="#blog" className="hover:text-black transition-colors">文章</a>
             <a href="#contact" className="hover:text-black transition-colors">联系</a>
           </div>
@@ -256,54 +203,12 @@ export default function Home() {
           </p>
           <div className="mt-8 flex gap-4">
             <a href="#contact" className="px-6 py-3 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors">联系我</a>
-            <a href="#projects" className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:border-gray-500 transition-colors">查看项目</a>
+            <a href="#blog" className="px-6 py-3 border border-gray-300 rounded-full text-sm hover:border-gray-500 transition-colors">阅读文章</a>
           </div>
         </FadeIn>
       </section>
 
-      {/* 项目网格 */}
-      <section id="projects" className="bg-gray-50">
-        <div className="max-w-5xl mx-auto px-6 py-24">
-          <FadeIn>
-            <div className="flex justify-between items-end mb-10">
-              <h2 className="text-2xl font-bold">项目</h2>
-              <div className="flex gap-2">
-                {tags.map(tag => (
-                  <button
-                    key={tag}
-                    onClick={() => setActiveTag(tag)}
-                    className={`px-4 py-1.5 rounded-full text-sm transition-colors ${
-                      activeTag === tag ? 'bg-black text-white' : 'bg-white text-gray-500 hover:border-gray-400 border border-gray-200'
-                    }`}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 80}>
-                <a href={p.link} className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                  <div className="relative overflow-hidden h-48">
-                    <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white text-sm font-medium border border-white px-4 py-2 rounded-full">查看详情 →</span>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">{p.tag}</span>
-                    <h3 className="font-semibold text-base mt-3 mb-1 group-hover:text-gray-600 transition-colors">{p.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{p.desc}</p>
-                  </div>
-                </a>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 💡 项目区域已被临时精简折叠，待以后有完整内容时随时一键恢复 */}
 
       {/* 文章展示区 */}
       <section id="blog" className="max-w-5xl mx-auto px-6 py-24">
