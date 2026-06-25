@@ -136,7 +136,7 @@ export default function Home() {
   // 条件分支：内嵌页面独立渲染
   // ==========================================
 
-  // 1. 罗伯特议事规则（恢复全套精细长文正文）
+  // 1. 罗伯特议事规则（完全还原最初版最惊艳的网格与对比表格结构）
   if (viewState === 'robert_article') {
     return (
       <main className="min-h-screen bg-white text-gray-900 pb-24">
@@ -146,44 +146,129 @@ export default function Home() {
             <span className="font-semibold text-sm">HUAHUI 的文章</span>
           </div>
         </nav>
-        
-        <article className="max-w-2xl mx-auto px-6 pt-32 space-y-8 text-gray-800 leading-relaxed text-base">
+
+        <article className="max-w-3xl mx-auto px-6 pt-32">
           <FadeIn>
-            <div className="text-xs text-gray-400 mb-2 tracking-wider uppercase">2026年6月 · 社会政治学 / 组织设计</div>
-            <h1 className="text-3xl font-bold tracking-tight mb-4 text-gray-950">议事的算法：罗伯特议事规则与群体决策的理性设计</h1>
-            <p className="text-lg text-gray-500 mb-8 font-light leading-relaxed">
+            <div className="text-sm text-gray-400 mb-3">2026年6月 · 社会政治学 / 组织设计</div>
+            <h1 className="text-4xl font-bold mb-4 leading-tight text-gray-900">
+              议事的算法：罗伯特议事规则与群体决策的理性设计
+            </h1>
+            <p className="text-xl text-gray-500 mb-12 leading-relaxed font-light">
               如何用工科的精密规则，保护文科的自由与人权？拆解文字构建的“群体协作操作系统”。
             </p>
           </FadeIn>
 
-          <FadeIn delay={50}>
-            <p>
-              诞生于 19 世纪的《罗伯特议事规则》，本质上是一套用极其严密的数理逻辑与程序设计，来保障人性尊严、自由与公平的“社会协作代码”。
-            </p>
-            <p className="mt-4">
-              在群体决策中，最容易出现的不是真理的越辩越明，而是情绪的对立与多数人的暴政。亨利·罗伯特（Henry Martyn Robert）发现了这一点，于是他仿照工程学的模块化思想，为人类的“开会”设计了一套底层算法。
-            </p>
-          </FadeIn>
+          <div className="space-y-16 text-gray-800 leading-relaxed text-lg">
+            <FadeIn>
+              <section>
+                <p className="mb-6">
+                  在面对群体决策时，我们经常陷入两个极端：要么流于无休止的“清谈和争吵”，效率极其低下；要么滑向少数人的“一言堂”，抹杀了多元个体的声音。
+                </p>
+                <p className="mb-6">
+                  诞生于 19 世纪的<strong>《罗伯特议事规则》（Robert's Rules of Order）</strong>，本质上是一套用极其严密的数理逻辑与程序设计，来保障人性尊严、自由与公平的“社会协作代码”。它告诉我们：理性的严谨，正是为了给感性的温度提供最坚实的容器。
+                </p>
+              </section>
+            </FadeIn>
 
-          <FadeIn delay={100}>
-            <h2 className="text-xl font-bold text-gray-950 pt-4">一、核心算子：动议与辩论的平衡</h2>
-            <p className="mt-2">
-              在这套系统中，一切的核心是“动议（Motion）”。任何想法必须先封装成一个可被表决的动议，才能进入执行栈。这防止了无意义的闲聊，强迫参与者将混沌的思维转化为清晰的逻辑。
-            </p>
-            <p className="mt-4">
-              而更精妙的设计在于其对“辩论权”的控制。每个人在同一问题上通常只能发言两次，且不能连续发言。这一限流机制直接抑制了“高声量个体的独裁”，让沉默的少数能够获得均等的算力分配。
-            </p>
-          </FadeIn>
+            {/* 最初版的四大原则网格卡片 */}
+            <FadeIn>
+              <section>
+                <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">
+                  核心原则 / 规则底层的平衡哲学
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="font-bold text-gray-900 mb-2">① 多数人原则与少数人保护</h3>
+                    <p className="text-sm text-gray-600">
+                      虽然最终决策听从多数人，但必须在充分听取少数人意见的前提下进行。剥夺少数人的发言权，等同于破坏了多数人决策的合法性。
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="font-bold text-gray-900 mb-2">② 一时一件（One thing at a time）</h3>
+                    <p className="text-sm text-gray-600">
+                      在任意给定时间内，会议只能审议和辩论一个动议。这类似于计算机系统中的“单线程”处理，防止思绪发散，确保闭环。
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="font-bold text-gray-900 mb-2">③ 对事不对人</h3>
+                    <p className="text-sm text-gray-600">
+                      辩论的目标是动议的可行性与价值，严禁攻击发言者的动机或人品。所有发言面向主持人，切断个体间直接的情绪冲突。
+                    </p>
+                  </div>
+                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    <h3 className="font-bold text-gray-900 mb-2">④ 充分辩论权</h3>
+                    <p className="text-sm text-gray-600">
+                      任何人不能垄断发言。在所有人都有机会发表第一次意见之前，任何人都不能发表第二次意见。确保内向者的声音被听见。
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </FadeIn>
 
-          <FadeIn delay={150}>
-            <h2 className="text-xl font-bold text-gray-950 pt-4">二、程序正义作为防火墙</h2>
-            <p className="mt-2">
-              罗伯特规则中充满了对“少数人权利”的防御性设计。例如，改变已有决议或终止辩论，往往需要三分之二以上的压倒性多数通过，而不是简单的过半数。这种“提高阈值”的方法，极大地保护了少数派免受多数派的瞬间情绪反扑。
-            </p>
-            <p className="mt-4">
-              用程序正义作为防火墙，保护不同声音的存活，这正是其蕴含的最深刻的人文关怀。理性的高度严谨，最终是为了给感性与自由提供最安全的避风港。
-            </p>
-          </FadeIn>
+            {/* 最初版的动议生命周期对比表格 */}
+            <FadeIn>
+              <section>
+                <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">
+                  运行范式 / 经典动议流生命周期
+                </h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-sm border-collapse">
+                    <thead>
+                      <tr className="border-b border-gray-200 bg-gray-50">
+                        <th className="p-3 font-semibold text-gray-700">步骤</th>
+                        <th className="p-3 font-semibold text-gray-700">规则动作（工科属性）</th>
+                        <th className="p-3 font-semibold text-gray-700">保障价值（文科属性）</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100 text-gray-600">
+                      <tr>
+                        <td className="p-3 font-medium text-gray-900">1. 提出主动议</td>
+                        <td className="p-3">“我动议……” 明确陈述一件具体的事情</td>
+                        <td className="p-3">拒绝模糊不清的抱怨，让讨论有靶子</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-medium text-gray-900">2. 附议（Second）</td>
+                        <td className="p-3">至少需要另外一人支持，动议才进入审议</td>
+                        <td className="p-3">过滤个人无意义的倾销，节省群体时间成本</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-medium text-gray-900">3. 主持人陈述</td>
+                        <td className="p-3">主持人宣布：“现在对该动议进行辩论”</td>
+                        <td className="p-3">确立公共议题，使其脱离提议者个人，归属集体</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-medium text-gray-900">4. 轮流辩论</td>
+                        <td className="p-3">赞成与反对轮流发言，发言严格限时</td>
+                        <td className="p-3">防止情绪性垄断，提供绝对理性的表达容器</td>
+                      </tr>
+                      <tr>
+                        <td className="p-3 font-medium text-gray-900">5. 表决与宣布</td>
+                        <td className="p-3">进行点票表决，主持人当场宣布结果</td>
+                        <td className="p-3">形成可执行、可追溯的最终闭环，拒绝和稀泥</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </FadeIn>
+
+            <FadeIn>
+              <section>
+                <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">
+                  结语 / 十字路口的再思考
+                </h2>
+                <p className="mb-6">
+                  如果说代码和 AI 算法是我们在数字世界中调配算力、解决逻辑问题的工具；那么《罗伯特议事规则》就是人类在现实世界中调配群体智慧、解决价值冲突的算法。
+                </p>
+                <div className="my-8 p-6 bg-gray-50 border border-gray-100 rounded-2xl">
+                  <p className="text-sm font-medium text-gray-900 mb-2">文理交叉的视角：</p>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    它的结构是冰冷、高度程序化的（极端的工科思维）；但它的初心，却是为了给个体尊严、自由表达提供完美的庇护（深沉的文科情怀）。它向我们证明：只有当规则足够严谨时，自由才真正拥有温度。
+                  </p>
+                </div>
+              </section>
+            </FadeIn>
+          </div>
         </article>
       </main>
     )
@@ -286,14 +371,14 @@ export default function Home() {
       <section id="about" className="max-w-5xl mx-auto px-6 pt-36 pb-12">
         <FadeIn>
           <p className="text-gray-400 mb-3">你好，我是</p>
-          <h1 className="text-5xl font-bold mb-5">HUAHUI</h1>
+          <h1 className="text-5xl font-bold mb-6">HUAHUI</h1>
           <p className="text-xl text-gray-500 max-w-xl leading-relaxed">
             关注 AI × 设计 × 人文的探索者，在数字与现实之间寻找意义。
           </p>
         </FadeIn>
       </section>
 
-      {/* ✍️ 文章展示区（全套 4 篇大件完全陈列于此） */}
+      {/* ✍️ 文章展示区（位于上方，完备收纳 4 篇深度长文） */}
       <section id="blog" className="max-w-5xl mx-auto px-6 py-16">
         <FadeIn>
           <h2 className="text-2xl font-bold mb-10">文章</h2>
@@ -305,7 +390,7 @@ export default function Home() {
             <Link href="/blog/wenzhang2" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">从四面文明之镜看狭隘民族主义的自我封闭</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">走出激情的盲区：从四面文明之镜看狭隘民族主义的自我封闭</h3>
                   <p className="text-gray-400 text-sm">放下偏见，真正坐下来凝视这四面“文明之镜”，照出极端情绪下的虚妄与盲目。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
@@ -318,7 +403,7 @@ export default function Home() {
             <Link href="/blog/wenzhang1" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">从自然律令到社会算法</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">观察者视界：从自然律令到社会算法</h3>
                   <p className="text-gray-400 text-sm">用理性的逻辑去解构未知，用严密的规则去容纳混沌。全面拆解自然科学与社会科学的底层纠缠。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
@@ -339,12 +424,12 @@ export default function Home() {
             </Link>
           </FadeIn>
 
-          {/* 文章 4（在这里无缝内嵌展开完整精细正文） */}
+          {/* 文章 4（硬核大版罗伯特，无缝原地展开） */}
           <FadeIn delay={150}>
             <div onClick={() => { setViewState('robert_article'); window.scrollTo(0,0); }} className="py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">罗伯特议事规则与群体决策的理性设计</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">议事的算法：罗伯特议事规则与群体决策的理性设计</h3>
                   <p className="text-gray-400 text-sm">如何用工科的精密规则，保护文科的自由与人权？拆解文字构建的“群体协作操作系统”。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
@@ -355,7 +440,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🕹️ 独立项目区域（位于下方，点击完美无缝原生展开） */}
+      {/* 🕹️ 独立项目区域（位于下方，点击无缝原生交互展开小游戏） */}
       <section id="projects" className="bg-gray-50 border-t border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 py-24">
           <FadeIn>
@@ -390,7 +475,7 @@ export default function Home() {
             <div className="space-y-6">
               <h2 className="text-2xl font-bold">联系我</h2>
               <p className="text-gray-500 leading-relaxed">
-                有想法或者只是纯粹想聊聊科技与人文的未来，欢迎随时给我发邮件留言。
+                有想法、合作需求、或者只是纯粹想聊聊科技与人文的未来，欢迎随时给我发邮件留言。
               </p>
               <div className="pt-4 flex gap-4">
                 <a href="mailto:luhuahui@gmail.com" className="px-6 py-3 bg-black text-white rounded-full text-sm hover:bg-gray-800 transition-colors shadow-sm">
