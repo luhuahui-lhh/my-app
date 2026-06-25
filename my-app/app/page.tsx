@@ -233,7 +233,7 @@ export default function Home() {
       <section id="about" className="max-w-5xl mx-auto px-6 pt-36 pb-12">
         <FadeIn>
           <p className="text-gray-400 mb-3">你好，我是</p>
-          <h1 className="text-5xl font-bold mb-6">HUAHUI</h2>
+          <h1 className="text-5xl font-bold mb-6">HUAHUI</h1>
           <p className="text-xl text-gray-500 max-w-xl leading-relaxed">
             关注 AI × 设计 × 人文的探索者，在数字与现实之间寻找意义。
           </p>
@@ -302,7 +302,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🕹️ 独立项目区域（已扩充至 4 个交互与算力模拟卡片） */}
+      {/* 🕹️ 独立项目区域（4 个交互与算力模拟卡片） */}
       <section id="projects" className="bg-gray-50 border-t border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 py-24">
           <FadeIn>
@@ -324,7 +324,7 @@ export default function Home() {
               <p className="text-gray-400 text-sm leading-relaxed">高阶二维矩阵逻辑验证的交互式数独，提供清爽沉浸的数理推演体验。</p>
             </div>
 
-            {/* 项目三（🚀 新增：薪资调整策略动态沙盘） */}
+            {/* 项目三：薪资调整策略动态沙盘 */}
             <FadeIn delay={50}>
               <Link href="/project/xiangmu3" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl cursor-pointer transition-shadow duration-300 p-6 border border-gray-100 h-full">
                 <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">企业精算 / 决策沙盘</span>
@@ -333,7 +333,7 @@ export default function Home() {
               </Link>
             </FadeIn>
 
-            {/* 项目四（🚀 新增：社保公积金实缴成本模型） */}
+            {/* 项目四：社保公积金实缴成本模型 */}
             <FadeIn delay={100}>
               <Link href="/project/xiangmu4" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl cursor-pointer transition-shadow duration-300 p-6 border border-gray-100 h-full">
                 <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">精算工程 / HR 动态模拟</span>
