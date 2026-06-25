@@ -252,7 +252,7 @@ export default function Home() {
             <Link href="/blog/wenzhang2" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">走出激情的盲区：从四面文明之镜看狭隘民族主义的自我封闭</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">从四面文明之镜看狭隘民族主义的自我封闭</h3>
                   <p className="text-gray-400 text-sm">放下偏见，真正坐下来凝视这四面“文明之镜”，照出极端情绪下的虚妄与盲目。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
@@ -265,7 +265,7 @@ export default function Home() {
             <Link href="/blog/wenzhang1" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">观察者视界：从自然律令到社会算法</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">从自然律令到社会算法</h3>
                   <p className="text-gray-400 text-sm">用理性的逻辑去解构未知，用严密的规则去容纳混沌。全面拆解自然科学与社会科学的底层纠缠。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
@@ -291,7 +291,7 @@ export default function Home() {
             <Link href="/blog/wenzhang3" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="font-semibold mb-1 text-gray-900">议事的算法：罗伯特议事规则与群体决策的理性设计</h3>
+                  <h3 className="font-semibold mb-1 text-gray-900">罗伯特议事规则与群体决策的理性设计</h3>
                   <p className="text-gray-400 text-sm">如何用工科的精密规则，保护文科的自由与人权？拆解文字构建的“群体协作操作系统”。</p>
                 </div>
                 <span className="text-gray-300 text-sm ml-8 shrink-0">2026年6月</span>
