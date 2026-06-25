@@ -133,7 +133,7 @@ export default function Home() {
   useEffect(() => { initMinesweeper(); initSudoku(); }, [])
 
   // ==========================================
-  // 条件分支：内嵌独立游戏渲染
+  // 条件分支：内嵌页面独立游戏渲染
   // ==========================================
 
   // 1. 扫雷游戏原地渲染
@@ -240,7 +240,7 @@ export default function Home() {
         </FadeIn>
       </section>
 
-      {/* ✍️ 文章展示区（全套 4 篇大件完美陈列，全部采用标准独立路由） */}
+      {/* ✍️ 文章展示区 */}
       <section id="blog" className="max-w-5xl mx-auto px-6 py-16">
         <FadeIn>
           <h2 className="text-2xl font-bold mb-10">文章</h2>
@@ -286,7 +286,7 @@ export default function Home() {
             </Link>
           </FadeIn>
 
-          {/* 文章 4（💡 已经完美重构，指向 /blog/wenzhang3） */}
+          {/* 文章 4 */}
           <FadeIn delay={150}>
             <Link href="/blog/wenzhang3" className="block py-6 hover:bg-gray-50 -mx-4 px-4 rounded-xl cursor-pointer transition-colors">
               <div className="flex justify-between items-start">
@@ -302,11 +302,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 🕹️ 独立项目区域 */}
+      {/* 🕹️ 独立项目区域（已扩充至 4 个交互与算力模拟卡片） */}
       <section id="projects" className="bg-gray-50 border-t border-b border-gray-100">
         <div className="max-w-5xl mx-auto px-6 py-24">
           <FadeIn>
-            <h2 className="text-2xl font-bold mb-10">独立项目（交互解谜）</h2>
+            <h2 className="text-2xl font-bold mb-10">独立项目（交互解谜与工程计算）</h2>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
@@ -323,6 +323,24 @@ export default function Home() {
               <h3 className="font-semibold text-xl mt-4 mb-2 group-hover:text-gray-600 transition-colors">禅意九宫格数独 →</h3>
               <p className="text-gray-400 text-sm leading-relaxed">高阶二维矩阵逻辑验证的交互式数独，提供清爽沉浸的数理推演体验。</p>
             </div>
+
+            {/* 项目三（🚀 新增：薪资调整策略动态沙盘） */}
+            <FadeIn delay={50}>
+              <Link href="/project/xiangmu3" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl cursor-pointer transition-shadow duration-300 p-6 border border-gray-100 h-full">
+                <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">企业精算 / 决策沙盘</span>
+                <h3 className="font-semibold text-xl mt-4 mb-2 group-hover:text-gray-600 transition-colors">薪资调整策略动态沙盘 →</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">模拟动态薪酬普调、个别调整与企业内部成本弹性的矩阵精算可视化模型。</p>
+              </Link>
+            </FadeIn>
+
+            {/* 项目四（🚀 新增：社保公积金实缴成本模型） */}
+            <FadeIn delay={100}>
+              <Link href="/project/xiangmu4" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl cursor-pointer transition-shadow duration-300 p-6 border border-gray-100 h-full">
+                <span className="text-xs text-gray-400 bg-gray-100 px-3 py-1 rounded-full">精算工程 / HR 动态模拟</span>
+                <h3 className="font-semibold text-xl mt-4 mb-2 group-hover:text-gray-600 transition-colors">社保公积金实缴人力成本精算模型 →</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">根据国家基数算法，对复杂社保实缴变动引起的企业全局雇佣成本变动进行全面复算。</p>
+              </Link>
+            </FadeIn>
 
           </div>
         </div>
