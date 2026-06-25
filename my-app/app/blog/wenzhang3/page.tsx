@@ -38,7 +38,6 @@ function FadeIn({ children, delay = 0 }: { children: ReactNode; delay?: number }
 export default function RobertArticle() {
   return (
     <main className="min-h-screen bg-white text-gray-900 pb-24">
-      {/* 导航栏 */}
       <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-sm border-b border-gray-100 z-50">
         <div className="max-w-3xl mx-auto px-6 py-4 flex justify-between items-center">
           <Link href="/" className="text-sm text-gray-500 hover:text-black transition-colors">
@@ -48,7 +47,6 @@ export default function RobertArticle() {
         </div>
       </nav>
 
-      {/* 文章正文页 */}
       <article className="max-w-3xl mx-auto px-6 pt-32">
         <FadeIn>
           <div className="text-sm text-gray-400 mb-3">2026年6月 · 社会政治学 / 组织设计</div>
@@ -72,7 +70,6 @@ export default function RobertArticle() {
             </section>
           </FadeIn>
 
-          {/* 四大原则网格卡片 */}
           <FadeIn>
             <section>
               <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">
@@ -107,7 +104,6 @@ export default function RobertArticle() {
             </section>
           </FadeIn>
 
-          {/* 动议生命周期对比表格 */}
           <FadeIn>
             <section>
               <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-100 pb-2">
@@ -163,3 +159,15 @@ export default function RobertArticle() {
                 如果说代码和 AI 算法是我们在数字世界中调配算力、解决逻辑问题的工具；那么《罗伯特议事规则》就是人类在现实世界中调配群体智慧、解决价值冲突的算法。
               </p>
               <div className="my-8 p-6 bg-gray-50 border border-gray-100 rounded-2xl">
+                <p className="text-sm font-medium text-gray-900 mb-2">文理交叉的视角：</p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  它的结构是冰冷、高度程序化的（极端的工科思维）；但它的初心，却是为了给个体尊严、自由表达提供完美的庇护（深沉的文科情怀）。它向我们证明：只有当规则足够严谨时，自由才真正拥有温度。
+                </p>
+              </div>
+            </section>
+          </FadeIn>
+        </div>
+      </article>
+    </main>
+  )
+}

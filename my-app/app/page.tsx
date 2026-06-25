@@ -233,7 +233,7 @@ export default function Home() {
       <section id="about" className="max-w-5xl mx-auto px-6 pt-36 pb-12">
         <FadeIn>
           <p className="text-gray-400 mb-3">你好，我是</p>
-          <h1 className="text-5xl font-bold mb-6">HUAHUI</h1>
+          <h1 className="text-5xl font-bold mb-6">HUAHUI</h2>
           <p className="text-xl text-gray-500 max-w-xl leading-relaxed">
             关注 AI × 设计 × 人文的探索者，在数字与现实之间寻找意义。
           </p>
